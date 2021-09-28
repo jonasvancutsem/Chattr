@@ -1,0 +1,27 @@
+[
+{
+"id" : 5,
+"text" : "Cypress test message 1",
+"date" :"",
+"sender" :"Jonas vc"
+},
+{
+    "id" : 6,
+    "text" : "Cypress test message 2",
+    "date" :"",
+    "sender" :"Jan Jannsens"
+},
+{
+    "id" : 7,
+    "text" : "Cypress test message 3",
+    "date" :"",
+    "sender" :"Jonas vc"
+},
+{
+    "id" : 8,
+    "text" : "Cypress test message 4",
+    "date" :"",
+    "sender" :"Jan Jannsens"
+}
+
+]

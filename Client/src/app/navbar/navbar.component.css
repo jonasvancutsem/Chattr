@@ -1,0 +1,27 @@
+.toolbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+
+button,
+span {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 900;
+  font-size: large;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  letter-spacing: 2px;
+}
+span {
+  font-size: 3rem;
+  letter-spacing: 4px;
+}

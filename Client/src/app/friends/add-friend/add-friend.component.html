@@ -1,0 +1,71 @@
+<!-- <mat-card>
+    <mat-form-field>
+      <input matInput placeholder="name" type="text" 
+          #newfriendname />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="email" type="email" 
+          #newfriendemail />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="age" type="number" 
+          #newfriendage />
+    </mat-form-field>
+
+    <button (click)="addFriend(newfriendname,newfriendemail,newfriendage)" mat-raised-button>
+      add user
+    </button>
+  </mat-card>  -->
+
+  <mat-card>
+    <mat-card-title>add user</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="friend" (ngSubmit)='onSubmit()'> 
+        <mat-form-field>
+          <input
+            matInput
+            aria-label="name"
+            placeholder="name"
+            type="text"
+            formControlName="name"
+            required
+            #spy
+          /> 
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            aria-label="email"
+            placeholder="email"
+            type="email"
+            formControlName="email"
+            required
+            #spy
+          /> 
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            aria-label="age"
+            placeholder="age"
+            type="number"
+            formControlName="age"
+            required
+            #spy
+          /> 
+        </mat-form-field>
+          <mat-error
+          *ngIf="friend.get('name')['errors'] && 
+          friend.get('name').touched"
+        >
+          {{ getErrorMessage(friend.get('name')['errors']) }}
+        </mat-error>
+       
+        <button type='submit' mat-raised-button [disabled]='!friend.valid'>
+          add user
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>

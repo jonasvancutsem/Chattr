@@ -1,0 +1,128 @@
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['friend/list']">Friends</a>
+      <a mat-list-item [routerLink]="['friend/add']">Add Friends</a>
+      <a mat-list-item [routerLink]="['register']">Register</a>
+      <a mat-list-item [routerLink]="['login']">Login</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Chattr</span>
+    
+     
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === true"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['friend/list']">Friends</a>
+      <a mat-list-item [routerLink]="['friend/add']">Add Friends</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+      mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Chattr</span>
+      <span class="fill-space"></span>
+      <div id="authnav">
+      <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
+        {{ user }}
+        <button (click)="logout()" mat-flat-button>
+          logout
+        </button>
+      </span>
+      <ng-template #loginTemplate>
+        <span>
+          <button (click)="login()" mat-flat-button>
+            login
+          </button>
+        </span>
+      </ng-template>
+    </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+<div>
+  <mat-toolbar color="primary"> 
+    <span>Chattr</span>
+    
+<button class="nav-button" mat-raised-button color="secondary" [routerLink]="['home']" >
+    <mat-icon><span class="material-icons-outlined">
+      home
+      </span></mat-icon>
+    Home
+</button>
+   <!-- <button class="nav-button" mat-raised-button color="secondary" [routerLink]="['friend/list']" >
+      <mat-icon>people</mat-icon>
+      Friends
+  </button> -->
+  
+<button class="nav-button" mat-raised-button color="secondary" [routerLink]="'chat'" >
+  <mat-icon><span class="material-icons-outlined">
+    chat_bubble_outline
+    </span></mat-icon>
+  Chat
+</button>
+    <span class="example-spacer"></span>
+    
+    <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
+      
+      {{ user }}
+      <button (click)="logout()" mat-flat-button>
+        <mat-icon><span class="material-icons-outlined">
+          logout
+          </span></mat-icon>
+        logout
+      </button>
+    </span>
+    <ng-template #loginTemplate>
+      <span>
+        <button class="nav-button" (click)="login()" mat-raised-button color="secondary">
+          <mat-icon><span class="material-icons-outlined">
+            login
+            </span></mat-icon>
+          login
+        </button>
+        <button class="nav-button" mat-raised-button color="secondary" [routerLink]="'register'">
+          <mat-icon>person_add_alt_1</mat-icon>
+          Register
+      </button>
+      </span>
+    </ng-template>
+  </mat-toolbar>
+  <ng-content></ng-content>
+</div>

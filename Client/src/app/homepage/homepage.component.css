@@ -1,0 +1,27 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+}
+.w3-bar,
+h1,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+.fa-coffee,
+.fa-comments {
+  font-size: 225px;
+}
+.bg {
+  background-color: #3f51b5 !important;
+}
+.ic {
+  color: #3f51b5 !important;
+}
+.border {
+  border-radius: 1em;
+}

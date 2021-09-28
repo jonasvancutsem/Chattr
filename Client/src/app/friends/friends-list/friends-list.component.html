@@ -1,0 +1,34 @@
+<div fxLayout="column" fxLayoutGap="2%">
+    <app-add-friend (newFriend)="addNewFriend($event)"></app-add-friend>
+
+    <mat-card>
+      <mat-form-field>
+        <input matInput (keyup)='filterFriend$.next($event.target.value)'  
+        placeholder="search user" type="text" />
+      </mat-form-field>
+      
+    </mat-card>
+    <div *ngIf="(friends$ | async) as friends; else loadingOrError"> 
+<div
+  fxLayout="row wrap"
+  fxLayout.xs="column"
+  fxLayoutGap="0.5%"
+  fxLayoutAlign="start"
+>
+  <div 
+    class="friend"
+    *ngFor="let localFriend of (friends$ | async | friendFilter: filterFriendName)"
+    fxFlex="0 0 calc(25%-0.5%)"
+    fxFlex.xs="100%"
+  >
+    <app-friend [friend]="localFriend"></app-friend>
+  </div>
+</div>
+ </div>
+<ng-template #loadingOrError>
+  <mat-card class="error" *ngIf="errorMessage; else loading">
+     Error loading the friend list: {{ errorMessage }}. <br/>
+      Please try again later.
+<ng-template #loading><mat-spinner></mat-spinner></ng-template></mat-card>
+</ng-template> 
+</div>

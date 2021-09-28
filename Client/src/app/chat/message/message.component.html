@@ -1,0 +1,24 @@
+<!-- <mat-card>
+    <mat-card-header>
+        <mat-card-title >
+          {{message.text}}
+          </mat-card-title>
+          <mat-card-subtitle> 
+            {{message.date}}
+          </mat-card-subtitle> 
+    </mat-card-header>
+  </mat-card>  -->
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title data-cy="message-text">
+        {{ message.text }}
+      </mat-card-title>
+      <mat-card-subtitle>
+       {{ message.date | date: 'longDate' }}
+      </mat-card-subtitle>
+      <mat-card-subtitle>
+        {{ message.sender}}
+       </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>

@@ -1,0 +1,41 @@
+
+  <mat-card  class="wrap" fxLayoutAlign="center end" >
+    <mat-card-content>
+      <form [formGroup]="message" (ngSubmit)="onSubmit()">
+        <mat-form-field style="width: 50vw;" >
+          <input
+            matInput
+            aria-label="text"
+            type="text"
+            formControlName="text" />
+          <mat-error
+            *ngIf="message.get('text')['errors'] && message.get('text').touched">
+            {{ getErrorMessage(message.get('text')['errors']) }}
+          </mat-error> 
+        </mat-form-field>
+     
+            
+        <!-- <button mat-icon-button type="submit" [disabled]="!message.valid">
+         send
+        </button> -->
+        <button mat-icon-button aria-label="send message" color="primary" type="submit" [disabled]="!message.valid">
+          <mat-icon>send</mat-icon>
+        </button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+   <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
+    got an error while adding the message: {{ errorMessage }}
+  </mat-card> 
+  <!-- <mat-card
+    class="confirmation"
+    *ngIf="confirmationMessage"
+    data-cy="appConfirmation"
+  >
+    {{ confirmationMessage }}
+  </mat-card> -->
+
+
+
+<div>

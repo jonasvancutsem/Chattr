@@ -1,0 +1,139 @@
+ <div fxLayout="column" fxLayoutGap="2%" >
+    <br>
+<h1 fxLayoutAlign="center end">CHAT</h1>
+    <!-- <mat-card>
+      <mat-form-field>
+        <input matInput (keyup)='filterMessage$.next($event.target.value)'  
+        placeholder="search message" type="text" />
+      </mat-form-field>
+      
+    </mat-card> -->
+<div *ngIf="(messages$ | async) as messages; else loadingOrError"> 
+  <div class="inner" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start" >
+    <div class="imessage">
+      <div 
+        class="message content"
+        *ngFor="let localMessage of (messages$ | async )">
+        <div>
+          <!-- <app-chat [message]="localMessage" data-cy="messageCard"></app-chat> -->
+          <h4 class="zender" > {{localMessage.sender}}</h4>
+                  <div class="inhoud">
+                    <p class="from-them"  data-cy="messageCard">
+                      {{localMessage.text}} 
+                    </p>
+                   
+                    <div>
+              <p class="datum">{{localMessage.date | date: longDate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  <!-- <div layout="column" layout-fill class="">
+    <div flex class="mat-
+    ">
+      <mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+        <mat-list>
+          <mat-list-item class="pad-top pad-bottom">
+                  <img  class="images" src="../../../assets/user.png" width="50"  />
+
+                  <h3 matLine class="cursor-pointer"><span class="tc-grey-500 md-caption">{{localMessage.sender}}</span></h3>
+                  <div matLine>
+                    <div class="text-wrap">
+                      {{localMessage.date | date: longDate  }}
+                      </div>
+                    
+                    <div class="text-wrap">{{localMessage.text}} -->
+                     <!-- <app-message [message]="localMessage" data-cy="messageCard"></app-message>  -->
+                   <!-- </div>
+                  </div>
+                </mat-list-item>
+                <mat-divider *ngIf="!last" mat-inset></mat-divider>
+              </mat-list>
+            </mat-card>
+          </div>
+        </div>       -->
+
+  
+
+<ng-template #loadingOrError>
+  <mat-card class="error" *ngIf="errorMessage; else loading">
+     Error loading the message list: {{ errorMessage }}. <br/>
+      Please try again later.
+<ng-template #loading><mat-spinner></mat-spinner></ng-template></mat-card>
+</ng-template>
+
+
+<app-send-chat ></app-send-chat> 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ <div fxLayout="column" fxLayoutGap="2%">
+  <mat-card>
+    <mat-form-field>
+      <input
+        matInput (keyup)="filterMessage$.next($event.target.value)" placeholder="filter" type="text"
+      />
+    </mat-form-field>
+  </mat-card>
+  <mat-card class="error" *ngIf="errorMessage">
+    got an error while loading the message list: {{ errorMessage }}
+  </mat-card>
+  <div *ngIf="messages$ | async as messages; else loadingOrError">
+    <div
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxLayoutGap="0.5%"
+      fxLayoutAlign="start"
+    >
+    <div 
+    class="message"
+    *ngFor="let message of (messages$ | async | messageFilter: filterMessageText)"
+    fxFlex="0 0 calc(25%-0.5%)"
+    fxFlex.xs="100%"
+  >
+        <app-chat [message]="message"></app-chat>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loadingOrError>
+    <span *ngIf="errorMessage; else loading"></span>
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  </ng-template>
+</div>
+ -->
